@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Practica03Java</string>
+    <string name="user">Victor</string>
+    <string name="password">123456</string>
+    <string name="num1"></string>
+    <string name="num2"></string>
+
+</resources>
