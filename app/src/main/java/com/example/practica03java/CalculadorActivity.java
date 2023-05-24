@@ -1,6 +1,9 @@
 package com.example.practica03java;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -153,7 +156,21 @@ public class CalculadorActivity extends AppCompatActivity {
         btnCerrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+                AlertDialog.Builder builder = new AlertDialog.Builder(CalculadorActivity.this);
+                builder.setTitle("Regresar");
+                builder.setMessage("¿Estás seguro de que quieres regresar?");
+
+                builder.setPositiveButton("Sí", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        finish(); // Cerrar la actividad actual y salir de la aplicación
+                    }
+                });
+
+                builder.setNegativeButton("No", null); // No hacer nada si se selecciona "No"
+
+                AlertDialog dialog = builder.create();
+                dialog.show();
             }
         });
     }
